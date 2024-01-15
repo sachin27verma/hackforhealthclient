@@ -8,6 +8,7 @@ import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {dark} from 'react-syntax-highlighter/dist/esm/styles/prism'
 import symptomsArray from '../utils/Data'
 import RefreshIcon from '@mui/icons-material/Refresh';
+import ReactLoading from 'react-loading';
 
 const MentalHealth = () => {
   const defaultResponse = "No"; // Default value for checkboxes
@@ -17,6 +18,12 @@ const MentalHealth = () => {
   const [responses, setResponses] = useState(initialResponses);
   const [result, setResult] = useState(null);
   const [about, setabout] = useState('');
+  const [query, setQuery] = useState("");
+  const [loading , setloading]=useState(false)
+  const filteredSymptoms = symptomsArray.filter(symptom =>
+    symptom.toLowerCase().includes(query.toLowerCase())
+  );
+
 
   const handleCheckboxChange = (index, value) => {
     const newResponses = [...responses];
@@ -25,6 +32,7 @@ const MentalHealth = () => {
   };
 
   const handlePrediction = async () => {
+    setloading(true);
     try {
       const numericResponses = responses.map((response) =>
         response === "Yes" ? 1 : 0
@@ -88,6 +96,9 @@ const MentalHealth = () => {
     } catch (error) {
       // console.error("Error predicting  health:", error);
     }
+    finally {
+      setloading(false); // Set loading to false when prediction completes (whether it succeeds or fails)
+    }
   };
 
   const handleclick = ()=>{
@@ -103,13 +114,14 @@ const MentalHealth = () => {
       </h1>
      
       <p className=" text-center font-bold p-2">Our Model provide 99% Accurate , Please try to choose maximum no of symptoms.</p>
-      <div className=" flex flex-wrap gap-3 justify-center">
+      <input placeholder="search symptom..." type="text" value={query} onChange={event => setQuery(event.target.value)} className=" border flex justify-center items-center  mx-auto w-5/6  md:w-3/6 p-2 m-2  " />
+      <div className=" flex flex-wrap gap-3 px-3 justify-center">
         {/* Render 100 checkboxes */}
-        {Array.from({ length: 102 }, (_, index) => (
+        {filteredSymptoms.map((symptom, index) => (
           <div
             key={index}
-            className=" p-2 rounded-md  flex-row justify-center items-center w-2/12  bg-semi-blue text-midnight font-bold ">
-              <div className=" text-center capitalize">{symptomsArray[index]}</div>
+            className=" p-2 rounded-md  flex-row justify-center items-center m-2 flex-grow min-w-4/12    bg-semi-blue text-midnight font-bold ">
+              <div className=" text-center capitalize">{symptom}</div>
               <div className=" flex gap-3 justify-center items-center text-white">
             <label  >
               Yes
@@ -136,18 +148,22 @@ const MentalHealth = () => {
       </div>
       <div className=" flex justify-center items-center gap-2">
 
-      <button
+    
+      {loading ? (<ReactLoading type={'spin'} color={'#000000'} height={'7%'} width={'7%'} className=" m-2" />) : (  <button
         onClick={handlePrediction}
         className="  bg-midnight p-2 font-bold flex jc items-center my-3 text-white rounded-lg px-3">
-        Predict
-      </button> <span><RefreshIcon className =' text-midnight cursor-pointer'  onClick={handleclick} /></span>
+      Predict
+   
+      </button> )}
+      
+      <span><RefreshIcon className =' text-midnight cursor-pointer'  onClick={handleclick} /></span>
       </div>
 
       {result && (
-        <div className="  md:w-4/6 w-full mx-auto shadow-xl p-3 my-3 prose ">
+        <div className="  md:w-4/6 w-full mx-auto text-center shadow-xl p-3 my-3 prose ">
           <p className=" text-center font-bold text-2xl ">{result}</p>
           {/* <p onClick={handleclick}>Wanna Know about Diseases</p> */}
-          <Markdown remarkPlugins={[remarkGfm]} 
+          <Markdown remarkPlugins={[remarkGfm] } 
           components={{
             code(props) {
               const { betakyahua, className, node, ...rest } = props;
@@ -180,3 +196,6 @@ const MentalHealth = () => {
 };
 
 export default MentalHealth;
+
+
+
