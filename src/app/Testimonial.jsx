@@ -27,7 +27,7 @@ const Testimonial = () => {
       </div>
       <div className="  w-5/6 mx-auto flex flex-wrap justify-between   gap-3  shadow-lg m-2 mb-0  ">
 
-      <div className=" w-3/12  border-r-2 border-b-2 border-semi-blue  inline-block   text-white bg-midnight p-3">
+      <div className=" w-full sm:w-3/12 border-r-2 border-b-2 border-semi-blue  inline-block   text-white bg-midnight p-3">
           <div className=" flex gap-3 mb-3 bg-semi-blue text-midnight rounded-md ">
               <div className=" h-[50px] w-[50px] relative ">
                   <Image src={'/doctor.png'} fill alt="avatar" className=" aspect-square rounded-full"/>
@@ -42,7 +42,7 @@ const Testimonial = () => {
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates nihil quam eos optio, a nostrum cum pariatur nobis sint officiis adipisci impedit. Distinctio quos omnis magni beatae molestiae esse asperiores!
           </div>
       </div>
-      <div className=" w-3/12  border-r-2 border-b-2 border-semi-blue  inline-block   text-white bg-midnight p-3">
+      <div className=" w-full sm:w-3/12  border-r-2 border-b-2 border-semi-blue  inline-block   text-white bg-midnight p-3">
           <div className=" flex gap-3 mb-3 ">
               <div className=" h-[50px] w-[50px] relative ">
                   <Image src={'/doctor.png'} fill alt="avatar" className=" aspect-square rounded-full"/>
@@ -57,7 +57,7 @@ const Testimonial = () => {
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates nihil quam eos optio, a nostrum cum pariatur nobis sint officiis adipisci impedit. Distinctio quos omnis magni beatae molestiae esse asperiores!
           </div>
       </div>
-      <div className=" w-3/12  border-r-2 border-b-2 border-semi-blue  inline-block   text-white bg-midnight p-3">
+      <div className="  w-full sm:w-3/12  border-r-2 border-b-2 border-semi-blue  inline-block   text-white bg-midnight p-3">
           <div className=" flex gap-3 mb-3 ">
               <div className=" h-[50px] w-[50px] relative ">
                   <Image src={'/doctor.png'} fill alt="avatar" className=" aspect-square rounded-full"/>
@@ -72,7 +72,7 @@ const Testimonial = () => {
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates nihil quam eos optio, a nostrum cum pariatur nobis sint officiis adipisci impedit. Distinctio quos omnis magni beatae molestiae esse asperiores!
           </div>
       </div>
-      <div className=" w-3/12  border-r-2 border-b-2 border-semi-blue  inline-block   text-white bg-midnight p-3">
+      <div className="  w-full sm:w-3/12 border-r-2 border-b-2 border-semi-blue  inline-block   text-white bg-midnight p-3">
           <div className=" flex gap-3 mb-3 ">
               <div className=" h-[50px] w-[50px] relative ">
                   <Image src={'/doctor.png'} fill alt="avatar" className=" aspect-square rounded-full"/>
@@ -88,7 +88,7 @@ const Testimonial = () => {
           </div>
       </div>
         {
-          state?( <div className=" w-3/12  border-r-2 border-b-2 border-semi-blue  inline-block   text-white bg-midnight p-3">
+          state?( <div className="  w-full sm:w-3/12  border-r-2 border-b-2 border-semi-blue  inline-block   text-white bg-midnight p-3">
           <div className=" flex gap-3 mb-3 ">
               <div className=" h-[50px] w-[50px] relative ">
                   <Image src={'/doctor.png'} fill alt="avatar" className=" aspect-square rounded-full"/>

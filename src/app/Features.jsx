@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import CircleIcon from '@mui/icons-material/Circle';
 
 const Features = () => {
   return (
@@ -12,6 +13,7 @@ const Features = () => {
         <div className="flex flex-wrap gap-10 justify-center mx-2">
           
           <div className=" w-full sm:w-3/12 h-[150px] rounded-lg bg-semi-blue flex-row items-center justify-center hover:scale-105  hover:-translate-y-1 transition-transform hover:-translate-x-1">
+            <div className=" absolute ml-4 mt-3 text-midnight font-bold   flex justify-center items-center  "><CircleIcon className="text-[#FF0000] animate-pulse text-md"></CircleIcon> Live </div>
           <Link href='/personalisedhealthcare'>
             <div className=" text-center">
               <lord-icon

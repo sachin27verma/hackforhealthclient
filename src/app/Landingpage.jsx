@@ -10,7 +10,7 @@ import Contactme from "./Contact";
 const LandingPage = () => {
   return (
     <div>
-      <div className="relative h-screen  bg-midnight  ">
+      <div className="relative md:h-screen h-[800px]  bg-midnight  ">
         <Image
           src={"/bc-1.jpg"}
           fill
