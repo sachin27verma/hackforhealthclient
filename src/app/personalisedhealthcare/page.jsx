@@ -113,7 +113,7 @@ const MentalHealth = () => {
         Personasided Healthcare
       </h1>
      
-      <p className=" text-center font-bold p-2">Our Model provide 99% Accurate , Please try to choose maximum no of symptoms.</p>
+      <p className=" text-center font-bold p-2">Our Model provide 99% Accuracy , Please try to choose maximum no of symptoms.</p>
       <input placeholder="search symptom..." type="text" value={query} onChange={event => setQuery(event.target.value)} className=" border flex justify-center items-center  mx-auto w-5/6  md:w-3/6 p-2 m-2  " />
       <div className=" flex flex-wrap gap-3 px-3 justify-center">
         {/* Render 100 checkboxes */}
