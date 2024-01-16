@@ -38,7 +38,7 @@ const MentalHealth = () => {
         response === "Yes" ? 1 : 0
       );
       // Send a POST request to the Flask server
-      console.log(numericResponses);
+      // console.log(numericResponses);
 
       axios.defaults.baseURL = "https://";
       // axios.defaults.headers.post["Content-Type"] =
@@ -120,7 +120,7 @@ const MentalHealth = () => {
         {filteredSymptoms.map((symptom, index) => (
           <div
             key={index}
-            className=" p-2 rounded-md  flex-row justify-center items-center m-2 flex-grow min-w-4/12    bg-semi-blue text-midnight font-bold ">
+            className=" p-2 rounded-md  flex-row justify-center items-center m-2 w-full sm:w-4/12 md:w-2/12   bg-semi-blue text-midnight font-bold ">
               <div className=" text-center capitalize">{symptom}</div>
               <div className=" flex gap-3 justify-center items-center text-white">
             <label  >
