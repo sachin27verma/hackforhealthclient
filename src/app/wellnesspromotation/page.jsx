@@ -2,7 +2,7 @@ import React from 'react'
 
 const Wellnesspromotion = () => {
   return (
-    <div>Wellnesspromotion</div>
+    <div className=' flex justify-center  h-screen items-center'>Coming Soon....</div>
   )
 }
 
