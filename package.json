@@ -27,6 +27,7 @@
     "react-checkmark": "^2.0.0",
     "react-cookie": "^4.1.1",
     "react-dom": "^18",
+    "react-icons": "^5.0.1",
     "react-loading": "^2.0.3",
     "react-markdown": "^9.0.1",
     "react-syntax-highlighter": "^15.5.0",

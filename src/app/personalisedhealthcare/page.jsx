@@ -9,6 +9,8 @@ import {dark} from 'react-syntax-highlighter/dist/esm/styles/prism'
 import symptomsArray from '../utils/Data'
 import RefreshIcon from '@mui/icons-material/Refresh';
 import ReactLoading from 'react-loading';
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 const MentalHealth = () => {
   const defaultResponse = "No"; // Default value for checkboxes
@@ -19,7 +21,16 @@ const MentalHealth = () => {
   const [result, setResult] = useState(null);
   const [about, setabout] = useState('');
   const [query, setQuery] = useState("");
-  const [loading , setloading]=useState(false)
+  const [loading , setloading]=useState(false);
+
+
+  const { data: session } = useSession();
+
+  if(!session)
+  {
+    return redirect('/api/auth/signin');
+  }
+
   const filteredSymptoms = symptomsArray.filter(symptom =>
     symptom.toLowerCase().includes(query.toLowerCase())
   );

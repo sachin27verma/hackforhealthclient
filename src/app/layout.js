@@ -3,7 +3,8 @@ import "./globals.css";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
 // import { SessionProvider } from 'next-auth/react';
-import { Auth } from "../components/Auth";
+// import { Auth } from "../components/Auth";
+import  AuthProvider  from "../components/AuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,9 +18,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className} suppressHydrationWarning={true}>
+        <AuthProvider>
+        <main>
         <Navbar />
       {children}
-        <Footer />
+        <Footer /></main></AuthProvider>
       </body>
     </html>
   );

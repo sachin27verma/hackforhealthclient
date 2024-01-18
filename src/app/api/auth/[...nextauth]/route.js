@@ -1,6 +1,7 @@
 import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google";
     import CredentialsProvider from "next-auth/providers/credentials";
+    import { redirect } from "next/navigation";
 
 const handler = NextAuth({
     providers: [
@@ -42,7 +43,9 @@ const handler = NextAuth({
           if (account.provider === "google") {
             return profile.email_verified && profile.email.endsWith("@gmail.com")
           }
-          return true // Do different verification for other providers that don't have `email_verified`
+          return true;
+          
+          // Do different verification for other providers that don't have `email_verified`
         },
       }
 })
