@@ -24,12 +24,12 @@ const MentalHealth = () => {
   const [loading , setloading]=useState(false);
 
 
-  // const { data: session } = useSession();
+  const { data: session } = useSession();
 
-  // if(!session)
-  // {
-  //   return redirect('/api/auth/signin');
-  // }
+  if(!session)
+  {
+    return redirect('/api/auth/signin');
+  }
   
 
   const filteredSymptoms = symptomsArray.filter(symptom =>

@@ -44,20 +44,32 @@ import GoogleProvider from "next-auth/providers/google";
       callbacks: {
         async signIn({ account, profile }) {
           if (account.provider === "google") {
+          //  await redirect('/')
             return profile.email_verified && profile.email.endsWith("@gmail.com")
           }
+          // redirect('/');
           return true;
           
           // Do different verification for other providers that don't have `email_verified`
         },
       },
       async redirect({ url, baseUrl }) {
-        // Allows relative callback URLs
-        if (url.startsWith("/")) return `${baseUrl}${url}`
-        // Allows callback URLs on the same origin
-        else if (new URL(url).origin === baseUrl) return url
         return baseUrl
       },
+      
+      // async redirect({ url, baseUrl }) {
+      //   // Allows relative callback URLs
+      //   if (url.startsWith("/")) return `${baseUrl}${url}`
+      //   // Allows callback URLs on the same origin
+      //   else if (new URL(url).origin === baseUrl) return url
+      //   return baseUrl
+      // }, async redirect({ url, baseUrl }) {
+      //   // Allows relative callback URLs
+      //   if (url.startsWith("/")) return `${baseUrl}${url}`
+      //   // Allows callback URLs on the same origin
+      //   else if (new URL(url).origin === baseUrl) return url
+      //   return baseUrl
+      // }
 })
 
  export  { handler as GET, handler as POST }
