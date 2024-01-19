@@ -3,7 +3,7 @@ import GoogleProvider from "next-auth/providers/google";
     import CredentialsProvider from "next-auth/providers/credentials";
     import { redirect } from "next/navigation";
 
- export const handler = NextAuth({
+  const handler = NextAuth({
   session: {
     strategy: 'jwt'
   },

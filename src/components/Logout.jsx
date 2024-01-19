@@ -1,12 +1,14 @@
 import React from 'react'
 import { AiOutlineLogout } from "react-icons/ai";
+import { redirect } from "next/navigation";
 
 import { signOut } from 'next-auth/react'
 
 const Logout = () => {
 
-    const handleclick=(()=>{
+    const  handleclick =(()=>{
 
+      // redirect('/')
         signOut();
     })
   return (
