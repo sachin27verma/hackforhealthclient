@@ -3,7 +3,10 @@ import GoogleProvider from "next-auth/providers/google";
     import CredentialsProvider from "next-auth/providers/credentials";
     import { redirect } from "next/navigation";
 
-const handler = NextAuth({
+ export const handler = NextAuth({
+  session: {
+    strategy: 'jwt'
+  },
     providers: [
         GoogleProvider({
           clientId: process.env.GOOGLE_CLIENT_ID,
@@ -50,4 +53,4 @@ const handler = NextAuth({
       }
 })
 
-export { handler as GET, handler as POST }
+ export  { handler as GET, handler as POST }
