@@ -1,19 +1,26 @@
 'use client'
-import React from 'react'
-import { useSession } from "next-auth/react";
-import { redirect } from "next/navigation";
+import React, { useEffect } from 'react';
 
-const Healthequity = () => {
-  const { data: session } = useSession();
+const Page = () => {
+  const link = "https://www.svnit.ac.in/";
 
-  if(!session)
-  {
-    return redirect('/api/auth/signin');
-  }
-  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      console.log("clicked")
+      window.location.href = link; // Redirect to the link
+    }, 1000);
+
+    return () => {
+      clearInterval(interval); // Clean up the interval on component unmount
+    };
+  }, []);
+
   return (
-    <div className=' flex justify-center h-screen items-center'>Coming Soon....</div>
-  )
-}
+    <div>
+      <p>Page content</p>
+      <p>Redirecting to <a href={link} target="_blank" rel="noopener noreferrer">clicked</a> every second.</p>
+    </div>
+  );
+};
 
-export default Healthequity
+export default Page;

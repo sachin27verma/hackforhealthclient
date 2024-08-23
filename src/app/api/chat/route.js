@@ -22,7 +22,7 @@ export async function POST(req, res) {
   // console.log(stream);
   return new StreamingTextResponse(stream)
 
-//   console.log(chatCompletion);
+  // console.log(chatCompletion);
   // return NextResponse.json({ content: chatCompletion });
 
 }
