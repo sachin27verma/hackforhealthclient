@@ -25,6 +25,7 @@
     "framer-motion": "^11.2.12",
     "next": "14.0.4",
     "next-auth": "^4.24.5",
+    "nodemailer": "^6.9.14",
     "openai": "^4.0.0",
     "react": "^18",
     "react-checkmark": "^2.0.0",
